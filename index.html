@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV విశ్వదర్శనం - Scientific Cosmic Oracle</title>
+    <style>
+        :root {
+            --bg-dark: #040814;
+            --card-bg: #0d1527;
+            --accent-cyan: #00ffcc;
+            --accent-orange: #f97316;
+            --gold: #ffd700;
+            --text-light: #f8fafc;
+            --text-muted: #64748b;
+            --border: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 20px; }
+        header h1 { color: var(--accent-cyan); font-size: 28px; margin: 0; }
+        header h1 span { color: var(--accent-orange); }
+        .subtitle { color: #94a3b8; font-size: 14px; margin-top: 10px; }
+        .panel { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+        label { display: block; margin: 15px 0 6px; color: #cbd5e1; font-weight: bold; font-size: 14px; }
+        select, input { width: 100%; padding: 12px; background-color: #040814; color: #fff; border: 1px solid #334155; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        button { margin-top: 20px; width: 100%; padding: 14px; background: linear-gradient(135deg, #00ffcc, #0284c7); color: #040814; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4); }
+        .output-box { margin-top: 25px; padding: 25px; background-color: #02050d; border-left: 5px solid var(--accent-orange); border-radius: 8px; display: none; border: 1px solid var(--border); border-left-width: 5px; }
+        .sec-title { color: var(--gold); font-size: 16px; border-bottom: 1px dashed #334155; padding-bottom: 5px; margin-top: 20px; font-weight: bold; }
+        .highlight { color: #38bdf8; font-weight: bold; }
+        .orange-text { color: var(--accent-orange); font-weight: bold; }
+        .matrix-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .matrix-card { background: rgba(255,255,255,0.02); border: 1px solid #1e293b; padding: 12px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV <span>విశ్వదర్శనం</span> - ఖగోళ శాస్త్ర తార్కిక ఒరాకిల్</h1>
+        <div class="subtitle">టెలిస్కోపుల పరిమితిని దాటి... 95% అਦృశ్య విశ్వ రహస్యాలను ఛేదించే ప్రాచీన విజ్ఞాన గణిత అల్గారిథమ్</div>
+    </header>
+
+    <div class="panel">
+        <label for="scientificQuery">శాస్త్రవేత్తలు ఎదుర్కొంటున్న ప్రధాన ఖగోళ చిక్కుముడి (Select Query):</label>
+        <select id="scientificQuery">
+            <option value="darkMatter">1. డార్క్ మ్యాటర్ (Dark Matter) - టెలిస్కోపులకు దొరకని ఆ 27% అదృశ్య పదార్థం ఏమిటి?</option>
+            <option value="darkEnergy">2. డార్క్ ఎనర్జీ (Dark Energy) - విశ్వాన్ని అమిత వేగంతో నెడుతున్న ఆ 68% అదృశ్య శక్తి ఏది?</option>
+            <option value="telescopeLimit">3. టెలిస్కోప్ పరిమితి - కాంతి (5%) దాటి నాణేనికి రెండో వైపు ఉన్న 95% విశ్వాన్ని ఎలా చూడాలి?</option>
+            <option value="blackHole">4. కాల రంధ్రం (Black Hole) - సింగులారిటీ వద్ద స్పేస్-టైమ్ వంపు మరియు భౌతిక సూత్రాల వైఫల్యం?</option>
+        </select>
+
+        <label for="cosmicConstant">మీరు ప్రతిపాదించాలనుకుంటున్న కాస్మిక్ కాలచక్ర విలువ (1 నుండి 9 లోపు ఒక సంఖ్య):</label>
+        <input type="number" id="cosmicConstant" min="1" max="9" value="5">
+
+        <button onclick="decodeCosmicMystery()">నాణేనికి రెండో వైపు విశ్లేషించు (Execute Logic)</button>
+    </div>
+
+    <div id="outputBox" class="output-box"></div>
+</div>
+
+<script>
+    function decodeCosmicMystery() {
+        const query = document.getElementById('scientificQuery').value;
+        const cosmicNum = parseInt(document.getElementById('cosmicConstant').value) || 5;
+        const outputBox = document.getElementById('outputBox');
+
+        let title = "";
+        let sideOne = ""; // నాణేనికి ఒకవైపు (మోడరన్ సైన్స్ వ్యూ)
+        let sideTwo = ""; // నాణేనికి రెండో వైపు (STGV ప్రాచీన తార్కిక వ్యూ)
+        let resolution = ""; // టెలిస్కోప్ పరిమితిని పెంచే తార్కిక పరిష్కారం
+
+        // శాస్త్రవేత్తల ప్రశ్నల ఆధారంగా తార్కిక మ్యాపింగ్
+        if (query === "darkMatter") {
+            title = "డార్క్ మ్యాటర్ (Dark Matter) రహస్య విశ్లేషణ";
+            sideOne = "ప్రస్తుత టెలిస్కోప్‌లు కాంతి (Electromagnetic Radiation) ఆధారంగా విశ్వంలో కేవలం <span class='orange-text'>5% భౌతిక పదార్థాన్ని</span> మాత్రమే చూస్తున్నాయి. మిగిలిన 27% డార్క్ మ్యాటర్ బరువును చూపిస్తోంది కానీ కాంతిని ఇవ్వడం లేదు.";
+            sideTwo = "ప్రాచీన సాంఖ్య సిద్ధాంతం ప్రకారం దీనిని <span class='highlight'>'అవ్యక్త ప్రకృతి' (Unmanifested Matter)</span> అంటారు. ఇది పదార్థం యొక్క ఘన స్థితి కాదు, అది శబ్ద/స్పందన తరంగాల లయబద్ధమైన 'మూల కారణ స్థితి'. భౌతిక కాంతి దీనిని తాకి పరావర్తనం చెందలేదు.";
+            resolution = "టెలిస్కోప్‌లు కాంతి కిరణాల పరిమితిని దాటి, <span class='highlight'>'గురుత్వాకర్షణ తరంగాల అయస్కాంత క్షేత్ర స్పెక్ట్రమ్'</span> ను కొలిచేలా మారాలి. అప్పుడే ఈ 27% లూప్ వీడుతుంది.";
+        } 
+        else if (query === "darkEnergy") {
+            title = "డార్క్ ఎనర్జీ (Dark Energy) & విశ్వ విస్తరణ";
+            sideOne = "విశ్వం నిరంతరం వేగంగా వ్యాపిస్తోంది. దీనికి కారణమైన <span class='orange-text'>68% డార్క్ ఎనర్జీ</span> ఏంటో, ఎక్కడి నుండి వస్తుందో ఆధునిక సైన్స్‌కు ఒక గాఢాంధకారం.";
+            sideTwo = "మన వేద కాస్మోలజీ ప్రకారం దీనిని <span class='highlight'>'ప్రాణ చలన శక్తి' (Cosmic Breath Expand)</span> అంటారు. విశ్వం అనేది ఒక సజీవ వ్యవస్థ. అది శ్వాస తీసుకున్నప్పుడు వ్యాకోచిస్తుంది (Expansion), శ్వాస వదిలినప్పుడు సంకోచిస్తుంది (Contraction). ఈ చలనం శూన్యం నుండి పుడుతుంది.";
+            resolution = "స్పేస్-టైమ్ అనేది ఖాళీ స్థలం కాదు. శూన్యంలో దాగి ఉన్న <span class='highlight'>'జీరో-పాయింట్ ఎనర్జీ' తరంగాలను</span> కొలవడానికి క్వాంటం-రెజోనెన్స్ టెలిస్కోపులను వాడటం నాణేనికి రెండో వైపును చూపిస్తుంది.";
+        } 
+        else if (query === "telescopeLimit") {
+            title = "టెలిస్కోప్ పరిమితిని 95% కి పెంచే సూత్రం";
+            sideOne = "సూర్య కిరణాల ప్రతిబింబం మరియు కాంతి వేగం (Speed of Light) అనే భౌతిక పరిమితి వల్లే మనం <span class='orange-text'>95% విశ్వాన్ని చూడలేకపోతున్నాం</span>.";
+            sideTwo = "సూర్య కాంతి అనేది భౌతిక కంటికి లేదా ఆప్టికల్ లెన్స్‌కు మాత్రమే పరిమితం. కానీ ప్రాచీన ఖగోళ తంత్రం ప్రకారం విశ్వం <span class='highlight'>'ఆకాశ తత్వం' (Space-Fabric Ether)</span> ద్వారా ఒకదానికొకటి క్షణ కాలంలో అనుసంధానించబడి ఉంది.";
+            resolution = "టెలిస్కోప్ లెన్స్ యొక్క పరిమాణాన్ని పెంచడం ఆపి, <span class='highlight'>'న్యూట్రినో మరియు స్పేస్-టైమ్ వంపు క్షేత్రాన్ని' (Gravitational Lensing Matrix)</span> డిజిటల్ అల్గారిథమ్స్ ద్వారా రీ-కన్స్ట్రక్ట్ చేయాలి. భౌతిక కాంతితో పనిలేకుండా విశ్వ చిత్రపటాన్ని నిర్మించడమే దీని పరిష్కారం.";
+        } 
+        else if (query === "blackHole") {
+            title = "కాల రంధ్రం (Black Hole) సింగులారిటీ చిక్కుముడి";
+            sideOne = "బ్లాక్ హోల్ కేంద్రం (Singularity) వద్ద ఐన్‌స్టీన్ సూత్రాలు ఫెయిల్ అవుతాయి. అక్కడ స్పేస్-టైమ్ వంపు <span class='orange-text'>అనంతం (Infinity)</span> అయిపోతుంది. సైంటిస్టులకు అక్కడ దారి తెలియడం లేదు.";
+            sideTwo = "ప్రాచీన కాలచక్ర సిద్ధాంతం ప్రకారం ఇది <span class='highlight'>'మహా శూన్యం' లేదా కాల బిందువు</span>. పదార్థం తన నామ రూపాలను పూర్తిగా కోల్పోయి, తిరిగి శక్తి రూపంలోకి మారే పునఃసృష్టి కేంద్రం అది.";
+            resolution = "అక్కడ భౌతిక గణితం పని చేయదు. <span class='highlight'>'క్వాంటం నాన్-లోకాలిటీ' (Quantum Non-locality)</span> మరియు ప్రాచీన తార్కిక బీజగణితాన్ని సింక్ చేస్తూ స్పేస్-టైమ్ వంపును డిజిటల్ సిమ్యులేషన్ చేయాలి.";
+        }
+
+        // కాస్మిక్ సంఖ్య ఆధారంగా తార్కిక విశ్లేషణ మార్పు
+        let cosmicImpact = `మీరు ఎంచుకున్న కాలచక్ర సూచిక సంఖ్య <b>${cosmicNum}</b> ప్రకారం: ఈ విశ్వ రహస్యాన్ని ఛేదించడానికి 'క్వాంటం మెకానిక్స్' మరియు 'ప్రాచీన సాంఖ్య తత్వ శాస్త్రం' కలవాలి.`;
+
+        // Render Output
+        outputBox.innerHTML = `
+            <h3 style="color: var(--accent-cyan); text-align:center; margin-bottom: 20px;">🔬 STGV విశ్వదర్శనం: ${title}</h3>
+            
+            <div class="matrix-box">
+                <div class="matrix-card">
+                    <div style="color: var(--accent-orange); font-weight: bold; margin-bottom: 5px;">🪙 నాణేనికి ఒకవైపు (Modern Science - 5%):</div>
+                    <p style="font-size: 14px; margin: 0; color: #cbd5e1;">${sideOne}</p>
+                </div>
+                <div class="matrix-card">
+                    <div style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 5px;">🕉️ నాణేనికి రెండో వైపు (STGV Ancient Logic - 95%):</div>
+                    <p style="font-size: 14px; margin: 0; color: #cbd5e1;">${sideTwo}</p>
+                </div>
+            </div>
+
+            <div class="sec-title">🛠️ టెలిస్కోప్ పరిమితిని పెంచే తార్కిక పరిష్కారం (The Scientific Resolution):</div>
+            <p style="font-size: 14.5px;">${resolution}</p>
+
+            <div class="sec-title">🌀 కాస్మిక్ మ్యాట్రిక్స్ ఇంపాక్ట్:</div>
+            <p style="font-size: 14px; font-style: italic; color: var(--text-muted);">${cosmicImpact}</p>
+            
+            <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:20px;">* సత్యాన్వేషణలో నిలిచిపోకుండా ముందడుగు వేసే STGV సైంటిఫిక్ ఒరాకిల్ లాజిక్ *</p>
+        `;
+
+        outputBox.style.display = "block";
+        outputBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
