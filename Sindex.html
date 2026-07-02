@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV విశ్వదర్శనం - మల్టీ-శాస్త్రజ్ఞుల సారాంశ పీఠం</title>
+    <style>
+        :root {
+            --bg-dark: #040916;
+            --card-bg: #0b132b;
+            --accent-cyan: #00ffcc;
+            --accent-orange: #f97316;
+            --gold: #ffd700;
+            --text-light: #f8fafc;
+            --border: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 20px; }
+        header h1 { color: var(--accent-cyan); font-size: 28px; margin: 0; }
+        header h1 span { color: var(--gold); }
+        .subtitle { color: #94a3b8; font-size: 14px; margin-top: 10px; }
+        .panel { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+        label { display: block; margin: 15px 0 6px; color: #cbd5e1; font-weight: bold; font-size: 14px; }
+        select, input[type="text"] { width: 100%; padding: 12px; background-color: #040916; color: #fff; border: 1px solid #334155; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        .or-divider { text-align: center; margin: 15px 0; color: var(--accent-orange); font-weight: bold; font-size: 14px; }
+        button { margin-top: 20px; width: 100%; padding: 15px; background: linear-gradient(135deg, #f97316, #ea580c); color: white; border: none; border-radius: 8px; font-size: 17px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4); }
+        .output-box { margin-top: 25px; padding: 25px; background-color: #02050d; border-left: 6px solid var(--accent-cyan); border-radius: 8px; display: none; border: 1px solid var(--border); border-left-width: 6px; }
+        .sec-title { color: var(--gold); font-size: 16px; border-bottom: 1px dashed #334155; padding-bottom: 5px; margin-top: 20px; font-weight: bold; }
+        .highlight { color: #38bdf8; font-weight: bold; }
+        .orange-text { color: var(--accent-orange); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV <span>విశ్వదర్శనం</span> - అనంత ఖగోళ విజ్ఞాన నిధి</h1>
+        <div class="subtitle">విశ్వంపై ఏ కోణంలో ప్రశ్న వచ్చినా సమాధానం అందించే డైనమిక్ సారాంశ క్రోడీకరణ వ్యవస్థ</div>
+    </header>
+
+    <div class="panel">
+        <label for="presetQuestion">లిస్ట్ నుండి ఒక ప్రశ్నను ఎంచుకోండి (Select Preset):</label>
+        <select id="presetQuestion" onchange="syncInput(this.value)">
+            <option value="">-- ప్రశ్నను ఎంచుకోండి లేదా కింద నేరుగా టైప్ చేయండి --</option>
+            <option value="గురుత్వాకర్షణ గ్రహాలు అంతరిక్షంలో ఎలా నిలిచి ఉన్నాయి?">గ్రావిటీ / గురుత్వాకర్షణ - గ్రహాలు కింద పడకుండా ఎలా ఉన్నాయి?</option>
+            <option value="భూమి తిరుగుతుందా గ్రహణాలు ఎందుకు వస్తాయి?">భూభ్రమణం & గ్రహణాలు - అసలు రహస్యం ఏంటి?</option>
+            <option value="పరమాణువుల మూలం ఏంటి అదృశ్య డార్క్ మ్యాటర్ ఏది?">డార్క్ మ్యాటర్ / పరమాణువు - కంటికి కనిపించని ఆ 95% ఏంటి?</option>
+            <option value="కాలం సాపేక్షమా టైమ్ ట్రావెల్ మరియు వ్యత్యాసం సాధ్యమేనా?">కాల వ్యత్యాసం / టైమ్ డైలేషన్ - సమయం అందరికీ ఒకేలా ఉంటుందా?</option>
+            <option value="అనంత విశ్వాలు మల్టీవర్స్ ఉనికి నిజమేనా?">మల్టీవర్స్ / సమాంతర అనంత విశ్వాల ఉనికి ఉందా?</option>
+        </select>
+
+        <div class="or-divider">లేదా (OR)</div>
+
+        <label for="customQuestion">మీరు అడగాలనుకుంటున్న ఖగోళ ప్రశ్నను ఇక్కడ టైప్ చేయండి (Type Any Cosmic Query):</label>
+        <input type="text" id="customQuestion" placeholder="ఉదాహరణకు: గ్రావిటీ, కాలం, పరమాణువు, అనంత విశ్వాలు, గ్రహణాలు...">
+
+        <button onclick="processCosmicQuery()">విశ్వ రహస్య కోణాన్ని విశ్లేషించు</button>
+    </div>
+
+    <div id="outputBox" class="output-box"></div>
+</div>
+
+<script>
+    // విభిన్న ప్రాచీన శాస్త్రజ్ఞుల మరియు గ్రంథాల విస్తృత సారాంశ క్రోడీకరణ (Dynamic Knowledge Base)
+    const STGV_Data_Matrix = [
+        {
+            keywords: ["గ్రావిటీ", "గురుత్వాకర్షణ", "ఆకర్షణ", "గ్రహాలు", "fall"],
+            sage: "భాస్కరాచార్యుడు (సిద్ధాంత శిరోమణి)",
+            field: "ఖగోళ భౌతిక శాస్త్రం (Astrophysics & Gravity)",
+            summary: "న్యూటన్ కంటే శతాబ్దాల ముందే భాస్కరాచార్యుడు భూమికి మరియు అంతరిక్షంలోని గ్రహాలకు ఉండే పరస్పర ఆకర్షణ శక్తిని నిరూపించారు. గ్రహాలు అంతరిక్షంలో శూన్యంలో కింద పడిపోకుండా ఒకదానికొకటి బంధించబడి ఉండటానికి గల 'అదృశ్య నియమాన్ని' సారాంశంగా ఇచ్చారు.",
+            formula: "'ఆకృష్టశక్తిశ్చ మహీ...' - వస్తువులు కింద పడటానికి కారణం భూమి తన శక్తితో వాటిని ఆకర్షించడమే.",
+            resolution: "సైన్స్ వెతుకుతున్న గ్రావిటన్ కణాలు లేదా స్పేస్-టైమ్ హోల్డింగ్ ఫోర్స్ అనేది ప్రాచీన 'ఆకర్షణ మాత్రిక' ఆధారంగా లెక్కించవచ్చు."
+        },
+        {
+            keywords: ["భూమి", "తిరుగుతుందా", "గ్రహణాలు", "ఆర్యభట్ట", "eclipse"],
+            sage: "ఆర్యభట్ట (ఆర్యభట్టీయం)",
+            field: "ఖగోళ చలన గణితం (Planetary Motion)",
+            summary: "భూమి తన చుట్టూ తాను తిరుగుతోందని (భూభ్రమణం) మొట్టమొదట ప్రతిపాదించిన మేధావి. రాహుకేతువులు అనేవి కేవలం ఛాయా గ్రహాలని, భూమి మరియు చంద్రుల నీడల కదలికల వల్లే గ్రహణాలు ఏర్పడుతున్నాయని పక్కా ఖగోళ గణిత సారాంశాన్ని అందించారు.",
+            formula: "నావలో ప్రయాణించే వ్యక్తికి ఒడ్డున ఉన్న స్థిర వస్తువులు వెనక్కి కదులుతున్నట్లు కనిపించే భ్రమ లాంటిదే భూభ్రమణం.",
+            resolution: "టెలిస్కోపుల పరిమితి దాటి, కేవలం రేఖాగణితం (Geometry) ద్వారా గ్రహాల కాలాన్ని ముందే లెక్కించే సూత్రం దీని ద్వారా లభిస్తుంది."
+        },
+        {
+            keywords: ["పరమాణువు", "డార్క్", "మ్యాటర్", "కణాద", "atom", "dark"],
+            sage: "మహర్షి కణాదుడు (వైశేషిక దర్శనం)",
+            field: "న్యూక్లియర్ కెమిస్ట్రీ & క్వాంటం ఫిజిక్స్",
+            summary: "విశ్వంలోని ప్రతి పదార్థం 'పీలవః' లేదా పరమాణువుల కలయికే అని కణాదుడు నిరూపించారు. మనం చూస్తున్న 5% దృశ్య పదార్థం కాకుండా, మిగిలిన 95% విశ్వమంతా పరమాణువుల యొక్క 'అవ్యక్త తరంగ స్థితి' (Unmanifested State) లో దాగి ఉందని, దీనినే మోడరన్ సైన్స్ డార్క్ మ్యాటర్ అంటోందని వివరించారు.",
+            formula: "కంటికి కనిపించని అదృష్ట (అదృశ్య శక్తి) పరమాణువుల చలనానికి మరియు సృష్టి పుట్టుకకు కారణం.",
+            resolution: "డార్క్ మ్యాటర్ ను కంటితో లేదా ఆప్టికల్ లెన్స్ తో వెతకడం ఆపి, పరమాణువుల 'మూల స్పందన ఫ్రీక్వెన్సీ' ని కొలవాలి."
+        },
+        {
+            keywords: ["కాలం", "సమయం", "టైమ్", "డైలేషన్", "time"],
+            sage: "మహర్షి వేదవ్యాసుడు (శ్రీమద్భాగవతం - కాల వ్యత్యాస సిద్ధాంతం)",
+            field: "సాపేక్ష కాల శాస్త్రం (Relativity of Time)",
+            summary: "ఐన్‌స్టీన్ టైమ్ డైలేషన్ సిద్ధాంతం కంటే ముందే మన గ్రంథాలలో కాలం అనేది వేర్వేరు లోకాలలో వేర్వేరు వేగంతో ప్రయాణిస్తుందని నిరూపించారు. కకుద్మి అనే రాజు బ్రహ్మలోకంలో కొన్ని నిమిషాలు గడిపేసరికి భూమిపై లక్షల సంవత్సరాలు గడిచిపోవడమే దీనికి సారాంశం.",
+            formula: "విశ్వ కేంద్రానికి దగ్గరగా ఉన్న లోకాలలో కాల గమనం అత్యంత నెమ్మదిగా సాగుతుంది; కాలం స్థిరమైనది కాదు, అది సాపేక్షం.",
+            resolution: "అంతరిక్ష ప్రయాణాలలో కాల వ్యత్యాసాలను లెక్కించడానికి ఈ 'లోక కాల రేషియో' గణితాన్ని వాడవచ్చు."
+        },
+        {
+            keywords: ["విశ్వాలు", "మల్టీవర్స్", "అనంత", "multiverse"],
+            sage: "యోగవాశిష్టం & భాగవత మహాపురాణం",
+            field: "కాస్మోలజీ & మల్టీవర్స్ థియరీ",
+            summary: "మోడరన్ సైన్స్ ఇప్పుడిప్పుడే ఊహిస్తున్న సమాంతర విశ్వాల (Parallel Universes) కాన్సెప్ట్ మనకు ఎప్పుడో తెలుసు. ఒక పరమాణువు లోపల కోట్లాది బ్రహ్మాండాలు (విశ్వాలు) ఏకకాలంలో ఉండి, వాటిలో విభిన్న కాలచక్రాలు నడుస్తున్నాయని యోగవాశిష్టం అత్యున్నత సారాంశాన్ని ఇచ్చింది.",
+            formula: "'కోటి బ్రహ్మాండ భాండములు' - సృష్టిలో మన విశ్వం లాంటివి అనంతమైన బుడగలు ఉన్నాయి.",
+            resolution: "మల్టీవర్స్ ఉనికిని భౌతికంగా కాకుండా క్వాంటం సంభావ్యత (Quantum Probability Models) ద్వారా గుర్తించడానికి ఈ తార్కిక నమూనా ఉపయోగపడుతుంది."
+        }
+    ];
+
+    function syncInput(val) {
+        if(val) document.getElementById('customQuestion').value = val;
+    }
+
+    function processCosmicQuery() {
+        const queryText = document.getElementById('customQuestion').value.trim().toLowerCase();
+        const outputBox = document.getElementById('outputBox');
+
+        if (!queryText) {
+            alert("దయచేసి ఒక ప్రశ్నను ఎంచుకోండి లేదా టైప్ చేయండి!");
+            return;
+        }
+
+        let matchedData = null;
+
+        // కీవర్డ్స్ ఆధారంగా డైనమిక్ గా డేటాను వెతికే స్మార్ట్ లాజిక్
+        for (let item of STGV_Data_Matrix) {
+            let isMatch = item.keywords.some(kw => queryText.includes(kw));
+            if (isMatch) {
+                matchedData = item;
+                break;
+            }
+        }
+
+        // ఒకవేళ పక్కా కీవర్డ్ దొరకకపోతే డిఫాల్ట్ గా కణాదుని/భాస్కరాచార్యుని జనరల్ కాస్మిక్ లాజిక్ ఇస్తుంది
+        if (!matchedData) {
+            matchedData = {
+                sage: "సమగ్ర ప్రాచీన విజ్ఞాన సారాంశం (STGV కాస్మిక్ మ్యాట్రిక్స్)",
+                field: "సార్వత్రిక ఖగోళ రహస్యాలు (General Cosmic Systems)",
+                summary: "మీరు అడిగిన నిర్దిష్ట ప్రశ్న విశ్వంలోని అన్వేషించని 95% అవ్యక్త రంగానికి సంబంధించినది. ప్రాచీన సాంఖ్య సిద్ధాంతం ప్రకారం విశ్వంలో శూన్యంగా కనిపించే ప్రతి భాగం ఒక అదృశ్య చైతన్య తరంగ క్షేత్రం (Consciousness Web) తో నిండి ఉంది.",
+                formula: "దృశ్య ప్రపంచం (5%) అనేది కేవలం అదృశ్య మూల సారాంశం (95%) యొక్క బాహ్య ప్రతిరూపం మాత్రమే.",
+                resolution: "ప్రశ్న ఏ కోణంలో వచ్చినా... బాహ్య కాంతిపై ఆధారపడటం ఆపి, విశ్వ మూల క్షేత్రమైన 'ఆకాశ తత్వం' (Space Matrix) ను డిజిటల్ కోడింగ్ లాజిక్ ద్వారా కొలవడమే అంతిమ పరిష్కారం."
+            };
+        }
+
+        // స్క్రీన్‌పై అవుట్‌పుట్ ప్రదర్శన
+        outputBox.innerHTML = `
+            <h3 style="color: var(--accent-cyan); text-align:center; margin-bottom: 25px;">🔬 STGV విశ్వదర్శనం: డైనమిక్ సారాంశ విశ్లేషణ</h3>
+            
+            <p><span class="orange-text">🪐 పరిశోధనా విభాగం:</span> <b>${matchedData.field}</b></p>
+            <p><span class="orange-text">🕉️ ప్రాచీన స్ఫూర్తి ప్రదాత:</span> <b style="font-size: 17px; color: var(--gold);">${matchedData.sage}</b></p>
+            
+            <div class="sec-title">📜 క్రోడీకరించిన ప్రాచీన శాస్త్ర సారాంశం (The Master Matter):</div>
+            <p style="font-size: 15px; line-height: 1.6; color: #cbd5e1;">${matchedData.summary}</p>
+
+            <div class="sec-title">🌀 మూల సిద్ధాంత సూత్రం / నిరూపణ వ్యూహం:</div>
+            <p style="font-style: italic; color: var(--accent-cyan); font-size: 14.5px; background: rgba(0,255,204,0.04); padding: 12px; border-radius: 6px;">"${matchedData.formula}"</p>
+
+            <div class="sec-title">🛠️ ఏ కోణంలోనైనా ప్రశ్నను ఛేదించే తార్కిక పరిష్కారం:</div>
+            <p style="font-size: 15px; line-height: 1.6; color: #f8fafc;">${matchedData.resolution}</p>
+
+            <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:25px; border-top: 1px solid #1e293b; padding-top:15px;">
+                * విశ్వ రహస్యాలపై ఏ కోణంలో ప్రశ్న వచ్చినా సమాధానం వెతికే STGV డైనమిక్ కోడ్ మోడల్ *
+            </p>
+        `;
+
+        outputBox.style.display = "block";
+        outputBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
+
