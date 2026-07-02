@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV విశ్వదర్శనం - Advanced Cosmic Research Engine</title>
+    <style>
+        :root {
+            --bg-dark: #040814;
+            --card-bg: #0d1527;
+            --accent-cyan: #00ffcc;
+            --accent-orange: #f97316;
+            --gold: #ffd700;
+            --text-light: #f8fafc;
+            --border: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--border); padding-bottom: 20px; }
+        header h1 { color: var(--accent-cyan); font-size: 30px; margin: 0; }
+        header h1 span { color: var(--accent-orange); }
+        .subtitle { color: #94a3b8; font-size: 14px; margin-top: 10px; }
+        .panel { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+        label { display: block; margin: 15px 0 6px; color: #cbd5e1; font-weight: bold; font-size: 14px; }
+        select, input { width: 100%; padding: 12px; background-color: #040814; color: #fff; border: 1px solid #334155; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        button { margin-top: 20px; width: 100%; padding: 15px; background: linear-gradient(135deg, #f97316, #ea580c); color: white; border: none; border-radius: 8px; font-size: 17px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5); }
+        .output-box { margin-top: 25px; padding: 25px; background-color: #02050d; border-left: 6px solid var(--accent-cyan); border-radius: 8px; display: none; border: 1px solid var(--border); border-left-width: 6px; }
+        .sec-title { color: var(--gold); font-size: 16px; border-bottom: 1px dashed #334155; padding-bottom: 5px; margin-top: 20px; font-weight: bold; }
+        .highlight { color: #38bdf8; font-weight: bold; }
+        .orange-text { color: var(--accent-orange); font-weight: bold; }
+        .matrix-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        @media (max-width: 768px) { .matrix-box { grid-template-columns: 1fr; } }
+        .matrix-card { background: rgba(255,255,255,0.02); border: 1px solid #1e293b; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>STGV <span>విశ్వదర్శనం</span> - అడ్వాన్స్డ్ ఖగోళ రీసెర్చ్ ఇంజన్</h1>
+        <div class="subtitle">సైంటిస్టుల చిక్కుముడులు - ప్రాచీన కాస్మోలజీ డేటా కలయికతో సరికొత్త తార్కిక అన్వేషణ</div>
+    </header>
+
+    <div class="panel">
+        <label for="scientificQuery">పరిశోధించాల్సిన ఖగోళ / క్వాంటం చిక్కుముడి (Select Research Topic):</label>
+        <select id="scientificQuery">
+            <option value="darkMatter">1. డార్క్ మ్యాటర్ (Dark Matter) - ఆ 27% అదృశ్య పదార్థం ఏమిటి?</option>
+            <option value="darkEnergy">2. డార్క్ ఎనర్జీ (Dark Energy) - విశ్వాన్ని విస్తరింపజేస్తున్న ఆ 68% శక్తి ఏది?</option>
+            <option value="telescopeLimit">3. టెలిస్కోప్ పరిమితి - కాంతి పరిమితి దాటి ఆ 95% ని ఎలా చూడాలి?</option>
+            <option value="multiverse">4. మల్టీవర్స్ (Multiverse) - సమాంతర విశ్వాల ఉనికి నిజమేనా?</option>
+            <option value="timeDilation">5. టైమ్ డైలేషన్ (Time Dilation) - కాస్మిక్ కాల వ్యత్యాస రహస్యం?</option>
+            <option value="quantumEntanglement">6. క్వాంటం ఎంటాంగిల్‌మెంట్ - కాంతి వేగాన్ని మించిన కణాల అనుసంధానం?</option>
+        </select>
+
+        <label for="cosmicConstant">కాస్మిక్ కాలచక్ర గణన ఇండెక్స్ (1 - 9):</label>
+        <input type="number" id="cosmicConstant" min="1" max="9" value="5">
+
+        <button onclick="decodeAdvancedMystery()">నాణేనికి రెండో వైపు డేటాను సేకరించు</button>
+    </div>
+
+    <div id="outputBox" class="output-box"></div>
+</div>
+
+<script>
+    function decodeAdvancedMystery() {
+        const query = document.getElementById('scientificQuery').value;
+        const cosmicNum = parseInt(document.getElementById('cosmicConstant').value) || 5;
+        const outputBox = document.getElementById('outputBox');
+
+        let title = "";
+        let sideOne = ""; 
+        let sideTwo = ""; 
+        let resolution = ""; 
+
+        if (query === "darkMatter") {
+            title = "డార్క్ మ్యాటర్ (Dark Matter)";
+            sideOne = "టెలిస్కోప్‌లు కాంతి ఆధారంగా విశ్వంలో కేవలం 5% భౌతిక పదార్థాన్ని మాత్రమే చూస్తున్నాయి. 27% డార్క్ మ్యాటర్ కంటికి కనిపించకుండా గురుత్వాకర్షణను ప్రభావితం చేస్తోంది.";
+            sideTwo = "సాంఖ్య శాస్త్రం దీనిని 'అవ్యక్త ప్రకృతి' (Unmanifested Primordial Matter) అంటారు. ఇది పరమాణువుల ఘన రూపం కాకముందు ఉండే కేవల తరంగ/స్పందన స్థితి (Vibrational Blueprint).";
+            resolution = "కాంతి కిరణాల (Photons) పై ఆధారపడటం ఆపి, 'స్పేస్-ఫ్యాబ్రిక్ డెన్సిటీ రెజోనెన్స్' ను కొలిచే డిజిటల్ డిటెక్టర్లను వాడటం.";
+        } 
+        else if (query === "darkEnergy") {
+            title = "డార్క్ ఎనర్జీ (Dark Energy)";
+            sideOne = "విశ్వాన్ని అమితమైన వేగంతో దూరం వైపు నెడుతున్న 68% అదృశ్య శక్తి. సైన్స్ దీనికి కారణం వెతకలేకపోతోంది.";
+            sideTwo = "ప్రాచీన కాస్మోలజీ ప్రకారం ఇది 'బ్రహ్మ శ్వాస' లేదా 'ప్రాణ చలన శక్తి'. శూన్యం స్థిరంగా ఉండదు, అది నిరంతరం స్పందిస్తూ వ్యాకోచిస్తుంది (Cosmic Expansion).";
+            resolution = "స్పేస్ అనేది ఖాళీ స్థలం కాదు, అది ఒక అపారమైన శక్తి క్షేత్రం అని గుర్తించి 'జీరో-ポイント ఎనర్జీ' ని హార్నెస్ చేసే గణిత సూత్రాలు వాడటం.";
+        } 
+        else if (query === "telescopeLimit") {
+            title = "టెలిస్కోప్ పరిమితి (Optical Limits)";
+            sideOne = "హబుల్, జేమ్స్ వెబ్ వంటి టెలిస్కోప్‌లు కేవలం సూర్య కిరణాలు/విద్యుదయస్కాంత తరంగాల పరిధిలోనే (5%) చూడగలవు.";
+            sideTwo = "ప్రాచీన యోగ సూత్రాలు బాహ్య కిరణాల కంటే 'ఆకాశ సూక్ష్మ చలనాన్ని' నమ్ముతాయి. కాంతి కంటే వేగంగా ప్రయాణించే తత్వాలు విశ్వంలో ఉన్నాయి.";
+            resolution = "ఆప్టికల్ లెన్స్ పరిమాణం పెంచే బదులు, గురుత్వాకర్షణ లెన్సింగ్ (Gravitational Lensing) మరియు న్యూట్రినో మ్యాపింగ్ అల్గారిథమ్స్ వాడటం.";
+        }
+        else if (query === "multiverse") {
+            title = "మల్టీవర్స్ (Multiverse Theory)";
+            sideOne = "మన విశ్వం లాంటివి అనంతమైన సమాంతర విశ్వాలు (Parallel Universes) ఉండి ఉండవచ్చని మోడరన్ క్వాంటం ఫిజిక్స్ ఊహిస్తోంది.";
+            sideTwo = "శ్రీమద్భాగవతంలో 'కోటి బ్రహ్మాండ నాయక' అని స్పష్టంగా ఉంది. ఒక పరమాణువులో వందల విశ్వాలు, కాలచక్రాలు ఏకకాలంలో నడుస్తాయని యోగవాశిష్టం ముందే నిరూపించింది.";
+            resolution = "మల్టీవర్స్ ను భౌతికంగా చూడలేం. దీనిని కేవలం 'క్వాంటం సంభావ్యత మ్యాట్రిక్స్' (Quantum Probability Matrices) గణితం ద్వారా మాత్రమే గుర్తించగలం.";
+        }
+        else if (query === "timeDilation") {
+            title = "టైమ్ డైలేషన్ (Time Dilation)";
+            sideOne = "తీవ్రమైన గ్రావిటీ ఉన్న చోట లేదా కాంతి వేగంతో ప్రయాణించినప్పుడు కాలం నెమ్మదిస్తుంది (ఐన్‌స్టీన్ సిద్ధాంతం).";
+            sideTwo = "కకుద్మి అనే రాజు బ్రహ్మలోకానికి వెళ్లి వచ్చేసరికి భూమిపై చతుర్యుగాలు (లక్షల సంవత్సరాలు) గడిచిపోయాయి. కాలం అనేది సాపేక్షం (Relative) అని ప్రాచీన విజ్ఞానానికి బాగా తెలుసు.";
+            resolution = "కాల గణనను కేవలం సూర్యుని చలనం ఆధారంగా కాకుండా, 'గ్రావిటేషనల్ పొటెన్షియల్ ఇండెక్స్' తో ముడిపెట్టి డిజిటల్ గడియారాలు రూపొందించడం.";
+        }
+        else if (query === "quantumEntanglement") {
+            title = "క్వాంటం ఎంటాంగిల్‌మెంట్ (Spooky Action)";
+            sideOne = "రెండు కణాలు విశ్వంలో ఎంత దూరంలో ఉన్నా, ఒక కణం మారితే రెండో కణం క్షణంలో స్పందిస్తుంది. ఇది ఐన్‌స్టీన్ స్పీడ్ లిమిట్ (కాంతి వేగం)ను బ్రేక్ చేస్తోంది.";
+            sideTwo = "ఇది 'సర్వం ఖల్విదం బ్రహ్మ' లేదా 'అద్వైత సూత్రం'. విశ్వంలోని ప్రతి అణువు అంతర్గతంగా ఒకే ఒక్క మూల చైతన్యంతో (Single Source Web) ముడిపడి ఉంది. కాబట్టి అక్కడ దూరం అనేది భ్రమ.";
+            resolution = "సమాచార మార్పిడికి కాంతి తరంగాలను కాకుండా, కణాల అంతర్గత 'స్పピン వైబ్రేషన్ అనుసంధానాన్ని' ఉపయోగించి క్వాంటం కంప్యూటింగ్ అభివృద్ధి చేయడం.";
+        }
+
+        outputBox.innerHTML = `
+            <h3 style="color: var(--accent-cyan); text-align:center; margin-bottom: 20px;">🔬 STGV రీసెర్చ్ ల్యాబ్: ${title}</h3>
+            
+            <div class="matrix-box">
+                <div class="matrix-card">
+                    <div style="color: var(--accent-orange); font-weight: bold; margin-bottom: 5px;">🪙 సైన్స్ చిక్కుముడి (The 5% Known):</div>
+                    <p style="font-size: 14.5px; margin: 0; color: #cbd5e1;">${sideOne}</p>
+                </div>
+                <div class="matrix-card">
+                    <div style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 5px;">👁️ నాణేనికి రెండో వైపు (The 95% Secret):</div>
+                    <p style="font-size: 14.5px; margin: 0; color: #cbd5e1;">${sideTwo}</p>
+                </div>
+            </div>
+
+            <div class="sec-title">💡 టెలిస్కోప్ పరిమితిని దాటే తార్కిక పరిష్కారం / పరిశోధనా సూచన:</div>
+            <p style="font-size: 15px; line-height: 1.6;">${resolution}</p>
+
+            <p style="font-size:12px; color:var(--accent-orange); text-align:center; margin-top:25px; border-top: 1px solid #1e293b; padding-top:15px;">
+                <b>STGV రీసెర్చ్ ఇండెక్స్: ${cosmicNum}08.95</b> | నిలిచిపోకుండా సాగే నిరంతర సత్యాన్వేషణ ప్రయాణం.
+            </p>
+        `;
+
+        outputBox.style.display = "block";
+        outputBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
+
