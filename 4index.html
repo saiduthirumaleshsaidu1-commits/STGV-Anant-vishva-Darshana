@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STGV విశ్వదర్శనం - Global Cosmic Logic Engine</title>
+    <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: #0b1528;
+            --accent-cyan: #00ffcc;
+            --accent-orange: #f97316;
+            --gold: #ffd700;
+            --text-light: #f8fafc;
+            --border: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 15px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        /* Language Bar Style */
+        .lang-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            background-color: #1e293b;
+            color: #94a3b8;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+        }
+
+        header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; }
+        header h1 { color: var(--gold); font-size: 26px; margin: 0; }
+        header h1 span { color: var(--accent-cyan); }
+        .subtitle { color: #94a3b8; font-size: 13.5px; margin-top: 8px; }
+        
+        .panel { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); }
+        label { display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: bold; font-size: 14px; }
+        select { width: 100%; padding: 12px; background-color: #030712; color: #fff; border: 1px solid #334155; border-radius: 8px; font-size: 15px; }
+        
+        button.execute-btn { margin-top: 20px; width: 100%; padding: 15px; background: linear-gradient(135deg, #f97316, #ea580c); color: white; border: none; border-radius: 8px; font-size: 17px; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+        button.execute-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4); }
+        
+        .output-box { margin-top: 25px; padding: 25px; background-color: #01040a; border-left: 6px solid var(--accent-cyan); border-radius: 8px; display: none; border: 1px solid var(--border); border-left-width: 6px; }
+        .sec-title { color: var(--gold); font-size: 16px; border-bottom: 1px dashed #334155; padding-bottom: 5px; margin-top: 20px; font-weight: bold; }
+        .matrix-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        @media (max-width: 768px) { .matrix-box { grid-template-columns: 1fr; } }
+        .matrix-card { background: rgba(255,255,255,0.02); border: 1px solid #1e293b; padding: 15px; border-radius: 8px; }
+        .sanskrit-text { font-style: italic; color: #38bdf8; font-size: 15px; background: rgba(56, 189, 248, 0.05); padding: 12px; border-radius: 6px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Language Toggle Buttons -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="changeLanguage('te', this)">తెలుగు (Telugu)</button>
+        <button class="lang-btn" onclick="changeLanguage('en', this)">English</button>
+    </div>
+
+    <header>
+        <h1 id="mainTitle">STGV <span>విశ్వదర్శనం</span> - గ్లోబల్ రీసెర్చ్ ఇంజన్</h1>
+        <div id="subTitle" class="subtitle">శూన్యం, అనంతం మరియు ఐన్‌స్టీన్ సాపేక్షత సిద్ధాంతాల తార్కిక సమన్వయం</div>
+    </header>
+
+    <div class="panel">
+        <label id="dropdownLabel" for="cosmicTopic">పరిశోధించాల్సిన కాస్మిక్ సబ్జెక్ట్ (Select Cosmic Topic):</label>
+        <select id="cosmicTopic">
+            <option value="zeroInfinity">1. శూన్యం ($0$) & అనంతం ($\infty$) - బ్రహ్మగుప్త, భాస్కరాచార్యుల ఖహర సిద్ధాంతం వర్సెస్ ఐన్‌స్టీన్ సింగులారిటీ</option>
+            <option value="timeDilation">2. టైమ్ డైలేషన్ (Time Dilation) - ఐన్‌స్టీన్ సాపేక్షత కాల గమనం వర్సెస్ వ్యాస మహర్షి కాల వ్యత్యాస లోకాలు</option>
+        </select>
+
+        <button id="actionBtn" class="execute-btn" onclick="generateGlobalAnalysis()">విశ్వ రహస్య కోణాన్ని విశ్లేషించు</button>
+    </div>
+
+    <div id="outputBox" class="output-box"></div>
+</div>
+
+<script>
+    let currentLang = 'te';
+
+    // UI టెక్స్ట్ లెక్సికాన్ (భాషా మార్పిడి కోసం)
+    const uiText = {
+        te: {
+            title: "STGV <span>విశ్వదర్శనం</span> - గ్లోబల్ రీసెర్చ్ ఇంజన్",
+            subtitle: "శూన్యం, అనంతం మరియు ఐన్‌స్టీన్ సాపేక్షత సిద్ధాంతాల తార్కిక సమన్వయం",
+            label: "పరిశోధించాల్సిన కాస్మిక్ సబ్జెక్ట్ (Select Cosmic Topic):",
+            btn: "విశ్వ రహస్య కోణాన్ని విశ్లేషించు",
+            scienceSide: "🔬 ఐన్‌స్టీన్ / మోడరన్ సైన్స్ కోణం (The 5% Known):",
+            ancientSide: "👁️ ప్రాచీన మేధావుల సారాంశం (The 95% Secret):",
+            resolutionTitle: "🛠️ గ్లోబల్ సైంటిస్టుల కోసం తార్కిక పరిష్కారం / సూచన:",
+            footer: "* STGV విశ్వదర్శనం - మల్టీ-లాంగ్వేజ్ గ్లోబల్ రీసెర్చ్ మోడల్ *"
+        },
+        en: {
+            title: "STGV <span>VishwaDarshanam</span> - Global Research Engine",
+            subtitle: "Logical Convergence of Zero, Infinity, and Einstein's Relativity",
+            label: "Select Cosmic Subject for Research:",
+            btn: "Analyze Cosmic Dimension",
+            scienceSide: "🔬 Einstein / Modern Science Perspective (The 5% Known):",
+            ancientSide: "👁️ Ancient Sage's Core Essence (The 95% Secret):",
+            resolutionTitle: "🛠️ Scientific Resolution for Global Physicists:",
+            footer: "* STGV VishwaDarshanam - Multi-Language Global Research Model *"
+        }
+    };
+
+    // కోర్ రీసెర్చ్ డేటాబేస్ (Telugu, English & Sanskrit Combined)
+    const Global_Database = {
+        zeroInfinity: {
+            te: {
+                topic: "శూన్యం, అనంతం & బ్లాక్ హోల్ సింగులారిటీ",
+                sideOne: "ఐన్‌స్టీన్ సాపేక్షత సిద్ధాంతం ప్రకారం ఒక నక్షత్రం అంతరించి బ్లాక్ హోల్ గా మారినప్పుడు దాని కేంద్రం వద్ద ద్రవ్యరాశి శూన్యం ($0$) వైపు కుంచించుకుపోయి, గురుత్వాకర్షణ క్షేత్రం మరియు స్పేస్-టైమ్ వంపు 'అనంతం' ($\infty$) అవుతుంది. ఇక్కడ ఆధునిక భౌతిక సూత్రాలు వైఫల్యం చెందుతాయి.",
+                sideTwo: "బ్రహ్మగుప్తుడు శూన్య గణితానికి పునాది వేయగా, భాస్కరాచార్యుడు తన 'సిద్ధాంత శిరోమణి' లో ఖహర సిద్ధాంతాన్ని ప్రతిపాదించారు. ఏదైనా సంఖ్యను శూన్యంతో భాగిస్తే వచ్చేది 'ఖహరము' అంటే అనంతం ($\infty$) అని నిరూపించారు. సృష్టి లయకారుడైన ఈ అనంత శూన్యాన్ని ప్రాచీన కాస్మోలజీ ముందే గుర్తించింది.",
+                sanskrit: "అస్మిన్ వికారే ఖహరే న రాశిః। ఖహరః సంక్షయః శూన్యేన గుణితః ఖముక్తమ్॥<br>(సారాంశం: శూన్యం చేత భాగించబడిన సంఖ్య అనంతం అవుతుంది. విశ్వం మహాశూన్యంలో లయమైనా దాని అనంత తత్వానికి మార్పుండదు.)",
+                resolution: "బ్లాక్ హోల్ సింగులారిటీ వద్ద మ్యాథ్స్ ఎందుకు ఫెయిల్ అవుతుందో తెలుసుకోవడానికి గ్లోబల్ సైంటిస్టులు భాస్కరాచార్యుని 'ఖహర అనంత గణిత మ్యాట్రిక్స్' ను క్వాంటం గ్రావిటీ ఈక్వేషన్స్ లోకి అప్లై చేయాలి."
+            },
+            en: {
+                topic: "Zero, Infinity & Black Hole Singularity",
+                sideOne: "According to Einstein's General Relativity, when a massive star collapses into a Black Hole, its core shrinks to a point of zero volume, making the gravitational field and space-time curvature 'Infinite' ($\infty$). At this point (Singularity), modern physics equations break down.",
+                sideTwo: "While Brahmagupta laid the foundation of Zero ($0$), Bhaskaracharya defined Infinity ($\infty$) via 'Khahara' in Siddhanta Shiromani. He proved that any finite number divided by zero results in Infinity ($\frac{a}{0} = \infty$). Ancient cosmology used this to map the cosmic dissolution into the infinite void.",
+                sanskrit: "అస్మిన్ వికారే ఖహరే న రాశిః। ఖహరః సంక్షయః శూన్యేన గుణితః ఖముక్తమ్॥<br>(Meaning: A number divided by zero becomes infinite. Just as the ultimate cosmic reality remains unaltered during creation or destruction.)",
+                resolution: "To solve the singularity crisis, global physicists must integrate Bhaskaracharya's 'Khahara Infinity Matrix' into Quantum Gravity models rather than viewing zero as a mathematical error."
+            }
+        },
+        timeDilation: {
+            te: {
+                topic: "ఐన్‌స్టీన్ టైమ్ డైలేషన్ వర్సెస్ వేద కాల వ్యత్యాసం",
+                sideOne: "ఐన్‌స్టీన్ ప్రత్యేక సాపేక్షత సిద్ధాంతం (Special Relativity) ప్రకారం... తీవ్రమైన గురుత్వాకర్షణ క్షేత్రంలో లేదా కాంతి వేగానికి దగ్గరగా ప్రయాణించే వస్తువుకు బాహ్య ప్రపంచంతో పోలిస్తే కాల గమనం (Time) నెమ్మదిస్తుంది.",
+                sideTwo: "మహర్షి వేదవ్యాసుడు శ్రీమద్భాగవతంలో కాలం సాపేక్షమని స్పష్టంగా నిరూపించారు. కకుద్మి మహారాజు బ్రహ్మలోకంలో కొద్ది నిమిషాలు గడిపి తిరిగి వచ్చేసరికి భూమిపై చతుర్యుగాలు (లక్షల సంవత్సరాలు) గడిచిపోయాయి. విశ్వ కేంద్రంలో కాల వేగం వేరని మన సారాంశం చెబుతోంది.",
+                sanskrit: "న యత్ర కాలో అనిమిషాం పరః ప్రభుః। నిమేషమాత్రేణ చతుర్యుగాదయః॥<br>(సారాంశం: ఉన్నత లోకాలలో భౌతిక కాల ప్రభావం ఉండదు. అక్కడ గడిచే ఒక నిమేషం భూమిపై చతుర్యుగ కాలంతో సమానం.)",
+                resolution: "కాలం అనేది స్థిరమైన విశ్వవ్యాప్త కొలత కాదు, అది అంతరిక్ష స్థానాన్ని బట్టి మారే సాపేక్ష తరంగం అని గ్లోబల్ స్పేస్ ట్రావెల్ కాలిక్యులేషన్స్ లో ఈ సారాంశం అద్భుతంగా పనిచేస్తుంది."
+            },
+            en: {
+                topic: "Einstein's Time Dilation vs Vedic Space-Time Relativity",
+                sideOne: "Einstein's Theory of Relativity asserts that time is not absolute. Time ticks slower for an observer inside a strong gravitational field or moving close to the speed of light compared to a stationary observer on Earth.",
+                sideTwo: "Sage Vyasa documented this in the Srimad Bhagavatam. King Kakudmi traveled to Brahma-Loka (higher dimension). When he returned after a few moments, millions of years (Four Yugas) had passed on Earth. It proves ancient seers knew that time flow rates vary across cosmic dimensions.",
+                sanskrit: "న యత్ర కాలో అనిమిషాం పరః ప్రభుః। నిమేషమాత్రేణ చతుర్యుగాదయః॥<br>(Meaning: In higher cosmic planes, the earthly bound time has no domain. Moments spent there equal cyclic eons on Earth.)",
+                resolution: "Global astronomers can utilize this 'Dimensional Time-Ratio' from Vedic Cosmology to conceptually re-model deep space interstellar temporal navigation."
+            }
+        }
+    };
+
+    function changeLanguage(lang, btn) {
+        currentLang = lang;
+        // Toggle Active Button Style
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Update UI Texts Dynamically
+        document.getElementById('mainTitle').innerHTML = uiText[lang].title;
+        document.getElementById('subTitle').innerText = uiText[lang].subtitle;
+        document.getElementById('dropdownLabel').innerText = uiText[lang].label;
+        document.getElementById('actionBtn').innerText = uiText[lang].btn;
+
+        // Re-trigger analysis if already displayed to seamlessly switch language text
+        if (document.getElementById('outputBox').style.display === "block") {
+            generateGlobalAnalysis();
+        }
+    }
+
+    function generateGlobalAnalysis() {
+        const topicKey = document.getElementById('cosmicTopic').value;
+        const outputBox = document.getElementById('outputBox');
+        
+        const data = Global_Database[topicKey][currentLang];
+        const ui = uiText[currentLang];
+
+        outputBox.innerHTML = `
+            <h3 style="color: var(--accent-cyan); text-align:center; margin-bottom: 25px;">🔬 STGV VishwaDarshanam: ${data.topic}</h3>
+            
+            <div class="matrix-box">
+                <div class="matrix-card">
+                    <div style="color: var(--accent-orange); font-weight: bold; margin-bottom: 8px;">${ui.scienceSide}</div>
+                    <p style="font-size: 14.5px; line-height: 1.6; margin: 0; color: #cbd5e1;">${data.sideOne}</p>
+                </div>
+                <div class="matrix-card">
+                    <div style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 8px;">${ui.ancientSide}</div>
+                    <p style="font-size: 14.5px; line-height: 1.6; margin: 0; color: #cbd5e1;">${data.sideTwo}</p>
+                </div>
+            </div>
+
+            <div class="sec-title">🕉️ మూల సంస్కృత శ్లోకం / Sanskrit Core Formula:</div>
+            <p class="sanskrit-text">${data.sanskrit}</p>
+
+            <div class="sec-title">${ui.resolutionTitle}</div>
+            <p style="font-size: 15px; line-height: 1.6; color: #f8fafc; font-weight: 500;">${data.resolution}</p>
+
+            <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:25px; border-top: 1px solid #1e293b; padding-top:15px;">
+                ${ui.footer}
+            </p>
+        `;
+
+        outputBox.style.display = "block";
+        outputBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
+
